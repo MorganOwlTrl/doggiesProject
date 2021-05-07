@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}Accueil{% endblock %}
+{% block pageTitle %}Accueil{% endblock %}
+{% block body %}
+    <img src="{{ asset('img/rottweiler.jpg') }}" class="rounded mx-auto d-block my-5"  alt="">
+    <h2>Bienvenue !</h2>
+    <p>Nos derniers toutous à l'adoption</p>
+    <div class="row mx-auto">
+
+    {% for annonce in annonces %}
+        <div class="card   border-dark pt-2 m-2" style="width: 18rem;">
+            <h5 class="card-title">{{annonce.title}}</h5>
+            <img src="{{annonce.picture}}" class="card-img-top picture-height-250 rounded-2" alt="...">
+            <div class="card-body">
+
+                <a href="/fiche/{{annonce.id}}" class="btn btn-primary">Voir les détails de l'annonce</a>
+            </div>
+        </div>
+
+    {% endfor %}
+    </div>
+{% endblock %}

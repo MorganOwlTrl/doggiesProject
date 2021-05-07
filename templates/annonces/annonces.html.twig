@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}Nos toutous{% endblock %}
+{% block pageTitle %}Nos toutous{% endblock %}
+
+{% block body %}
+    <div class="row mx-auto">
+
+        {% for annonce in annonces %}
+            <div class="card   border-dark pt-2 m-2" style="width: 18rem;">
+                <h5 class="card-title">{{annonce.title}}</h5>
+                <img src="{{annonce.picture}}" class="card-img-top picture-height-250 rounded-2" alt="...">
+                <div class="card-body">
+                    
+                    <a href="/fiche/{{annonce.id}}" class="btn btn-primary">Voir les détails de l'annonce</a>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
