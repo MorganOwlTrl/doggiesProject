@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{annonce.title}}{% endblock %}
+{% block pageTitle %}{{annonce.title}}{% endblock %}
+{% block body %}
+
+    {% for key, dog in dogs %}
+
+
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="../{{dog.picture}}" alt="photo de {{dog.name}}">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2>{{dog.name}}</h2>
+
+                            {% if dog.isAdopted == 1 %}
+                                <p class="bg-secondary text-white p-2">Adopté !</p>
+                            {% else %}
+                                <p class="bg-info text-white p-2">Disponible à l'adoption</p>
+                            {% endif %}
+
+                            <p>Date de naissance : {{dog.dateOfBirth  | date("d/m/Y")}}</p>
+                            <p>Race :
+
+                                {%  for breed in dog.breeds %}
+                                    {{ breed }}
+                                {% endfor %}
+                            </p>
+                            <p class="card-text">{{dog.description}}</p>
+                            {% if dog.isAdopted == 0 %}
+                            <a href="/contact/{{dog.id}}" class="btn btn-primary">Adopter {{dog.name}}</a>
+                            {% endif %}
+                            <p class="card-text mt-3"><small class="text-muted">Ajouté le {{annonce.publicationDate  | date("d/m/Y")}} | Mis à jour le  {{annonce.updateDate  | date("d/m/Y")}} </small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    {% endfor %}
+
+{% endblock %}

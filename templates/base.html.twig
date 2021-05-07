@@ -7,13 +7,49 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         {% endblock %}
+
+
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            {% block nav %}
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ path('default') }}">Milles et Un Toutous</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item ">
+                            <a class="nav-link {% if app.request.get('_route') == 'default' %} active {% endif %}" href="{{ path('default') }}" >Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if app.request.get('_route') == 'annonces' %} active {% endif %}" href="{{ path('annonces') }}">Nos toutous</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if app.request.get('_route') == 'conditions' %} active {% endif %}" href="{{ path('conditions') }}" >Conditions d'adoption</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if app.request.get('_route') == 'contact' %} active {% endif %}" href="{{ path('contact') }}" >Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {% endblock %}
+        </nav>
+        <div class="container">
+            <div class="row my-5">
+                <h1>{% block pageTitle %}Bienvenue !{% endblock %}</h1>
+            </div>
+            {% block body %}{% endblock %}
+        </div>
 
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
+            <script type="text/javascript" src="../public/js/bootstrap.min.js"></script>
         {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
     </body>
 </html>
