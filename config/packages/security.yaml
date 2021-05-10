@@ -15,8 +15,6 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            for_login :
-                failure_path:
             anonymous: true
             lazy: true
             provider: app_user_provider
