@@ -34,5 +34,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Annonces', 'fas fa-sticky-note', Annonce::class );
         yield MenuItem::linkToCrud('Chiens', 'fas fa-dog', Dog::class);
         yield MenuItem::linkToCrud('Races de chiens', 'fas fa-list', Breed::class);
+
     }
 }

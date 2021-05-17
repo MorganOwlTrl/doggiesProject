@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}{{ 'loginForm.login'|trans }}{% endblock %}
 
 {% block body %}
 <form method="post" class="col-md-5">
@@ -10,14 +10,14 @@
 
     {% if app.user %}
         <div class="mb-3">
-            Vous êtes déjà connecté en tant que {{ app.user.username }}, <a class="btn btn-primary" href="{{ path('app_logout') }}">Se déconnecter</a>
+            {{ 'loginForm.alreadylog'|trans }}  {{ app.user.username }}, <a class="btn btn-primary" href="{{ path('app_logout') }}">{{ 'navbar.logout'|trans }}</a>
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Veuillez vous connecter</h1>
-    <label for="inputUsername">Nom d'utilisateur</label>
+    <h1 class="h3 mb-3 font-weight-normal">{{ 'loginForm.connexionTitle'|trans }}r</h1>
+    <label for="inputUsername">{{ 'loginForm.username'|trans }}r</label>
     <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" required autofocus>
-    <label for="inputPassword">Mot de Passe</label>
+    <label for="inputPassword">{{ 'loginForm.password'|trans }}</label>
     <input type="password" name="password" id="inputPassword" class="form-control" required>
 
     <input type="hidden" name="_csrf_token"
@@ -36,7 +36,7 @@
     #}
 
     <button class="btn btn-lg btn-primary my-3" type="submit">
-       Connexion
+        {{ 'loginForm.connexion'|trans }}
     </button>
 </form>
 {% endblock %}

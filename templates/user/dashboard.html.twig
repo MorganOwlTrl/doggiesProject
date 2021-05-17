@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block title %}Dashboard utilisateur{% endblock %}
+{% block pageTitle %}Dashboard utilisateur{% endblock %}
+{% block body %}
+<div class="my-5">
+    <a class="btn btn-primary" href="/user/addAnnonce">Ajouter une annonce</a>
+    <a class="btn btn-primary" href="/user/addDog">Ajouter un chien</a>
+</div>
+
+<h2>Liste de vos chiens</h2>
+    <table class="table my-5 table-striped table-hover">
+        <thead>
+        <tr>
+            <th>
+                Nom
+            </th>
+            <th>
+                Statut
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for dog in dogs %}
+            <tr>
+                <td>{{ dog.name }}</td>
+                {% if dog.isAdopted %}
+                    <td>Adopté</td>
+                {% else %}
+                    <td>En attente d'adoption</td>
+                {% endif %}
+                <td>
+                    <a class="btn btn-primary" href="/user/updateDog/{{ dog.id }}">Modifier</a>
+                    <a class="btn btn-danger" href="/user/deleteDog/{{ dog.id }}">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

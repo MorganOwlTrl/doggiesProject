@@ -1,0 +1,36 @@
+navbar :
+  home : Accueil
+  dogs: Nos toutous
+  conditions : Conditions d'adoption
+  contact : Contact
+  login : Se connecter
+  logout : Se déconnecter
+  hello : Bonjour
+  addDog : Ajouter une annonce
+annonces :
+  details : Voir les détails de l'annonce
+home :
+  welcome : Bienvenue !
+  lastdogs : Nos derniers toutou à l'adoption
+contact :
+  mail : Email
+  subject : Sujet
+  dog : Chien
+  message : Message
+  send : Envoyer
+dog :
+  adopted : Adopté
+  available : Disponible à l'adoption
+  birthdate : Date de naissance
+  breed : Race(s)
+  adopt : Adopter
+  submit : Ajouté le
+  update : Mis à jour le
+loginForm :
+  login : Connecté !
+  alreadylog : Vous êtes déjà connecté en tant que
+  connexionTitle : Connectez vous
+  username : Nom d'utilisateur
+  password : Mot de passe
+  connexion : Se connecter
+

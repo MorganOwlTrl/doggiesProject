@@ -1,0 +1,8 @@
+navbar :
+  home : Home
+  dogs: Our dogs
+  conditions : Conditions for adoption
+  contact : Contact
+  login : Login
+  logout : Logout
+  hello : Hello

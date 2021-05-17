@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+{% block title %}Ajouter un chien{% endblock %}
+{% block pageTitle %}Ajouter un chien{% endblock %}
+{% block body %}
+<div class="col-6">
+
+    {{ form_start(form) }}
+            {{ form_row(form.isAdopted, {
+                    row_attr: {
+                        class: 'mb-3 form-check form-switch',
+                    },
+                    label_attr: {
+                        class: 'form-check-label',
+                    },
+                    attr: {
+                        class: 'form-check-input',
+                    },
+
+                })
+            }}
+
+    {{ form_row(form.name, {
+            row_attr: {
+                class: 'mb-3',
+            },
+            attr: {
+                class: 'form-control',
+            },
+            label_attr: {
+                class: 'form-label',
+            },
+        }) }}
+
+        {{ form_row(form.dateOfBirth, {
+                row_attr: {
+                    class: 'mb-3',
+                },
+                attr: {
+                    class: '',
+                },
+                label_attr: {
+                    class: 'form-label',
+                },
+            })
+        }}
+        {{ form_row(form.description, {
+                row_attr: {
+                    class: 'mb-3',
+                },
+                attr: {
+                    class: 'form-control',
+                },
+                label_attr: {
+                    class: 'form-label',
+                },
+            })
+        }}
+        {{ form_row(form.picture, {
+                row_attr: {
+                    class: 'mb-3',
+                },
+                attr: {
+                    class: 'form-control',
+                },
+                label_attr: {
+                    class: 'form-label',
+                },
+            })
+        }}
+        {{ form_row(form.annonce, {
+                row_attr: {
+                    class: 'mb-3',
+                },
+                attr: {
+                    class: 'form-select',
+                },
+                label_attr: {
+                    class: 'form-label',
+                },
+            })
+        }}
+        {{ form_row(form.breeds, {
+                row_attr: {
+                    class: 'mb-3',
+                },
+                attr: {
+                    class: 'form-select',
+                },
+                label_attr: {
+                    class: 'form-label',
+                },
+            })
+        }}
+          <button type="submit" class="mb-5 btn btn-primary">Envoyer</button>
+    {{ form_end(form) }}
+    </div>
+{% endblock %}

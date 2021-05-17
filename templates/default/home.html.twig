@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
-{% block title %}Accueil{% endblock %}
-{% block pageTitle %}Accueil{% endblock %}
+{% block title %}{{ 'navbar.home'|trans }}{% endblock %}
+{% block pageTitle %}{{ 'navbar.home'|trans }}{% endblock %}
 {% block body %}
     <img src="{{ asset('img/rottweiler.jpg') }}" class="rounded mx-auto d-block my-5"  alt="">
-    <h2>Bienvenue !</h2>
-    <p>Nos derniers toutous à l'adoption</p>
+    <h2>{{ 'home.welcome'|trans }}</h2>
+    <p>{{ 'home.lastdogs'|trans }}</p>
     <div class="row mx-auto">
 
     {% for annonce in annonces %}

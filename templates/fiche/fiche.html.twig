@@ -16,13 +16,13 @@
                             <h2>{{dog.name}}</h2>
 
                             {% if dog.isAdopted == 1 %}
-                                <p class="bg-secondary text-white p-2">Adopté !</p>
+                                <p class="bg-secondary text-white p-2">{{ 'dog.adopted'|trans }} !</p>
                             {% else %}
-                                <p class="bg-info text-white p-2">Disponible à l'adoption</p>
+                                <p class="bg-info text-white p-2">{{ 'dog.available'|trans }}</p>
                             {% endif %}
 
-                            <p>Date de naissance : {{dog.dateOfBirth  | date("d/m/Y")}}</p>
-                            <p>Race :
+                            <p>{{ 'dog.birthdate'|trans }} : {{dog.dateOfBirth  | date("d/m/Y")}}</p>
+                            <p>{{ 'dog.breed'|trans }} :
 
                                 {%  for breed in dog.breeds %}
                                     {{ breed }}
@@ -30,9 +30,9 @@
                             </p>
                             <p class="card-text">{{dog.description}}</p>
                             {% if dog.isAdopted == 0 %}
-                            <a href="/contact/{{dog.id}}" class="btn btn-primary">Adopter {{dog.name}}</a>
+                            <a href="/contact/{{dog.id}}" class="btn btn-primary">{{ 'dog.adopt'|trans }} {{dog.name}}</a>
                             {% endif %}
-                            <p class="card-text mt-3"><small class="text-muted">Ajouté le {{annonce.publicationDate  | date("d/m/Y")}} | Mis à jour le  {{annonce.updateDate  | date("d/m/Y")}} </small></p>
+                            <p class="card-text mt-3"><small class="text-muted">{{ 'dog.submit'|trans }} {{annonce.publicationDate  | date("d/m/Y")}} | Mis à jour le{{ 'dog.update'|trans }}  {{annonce.updateDate  | date("d/m/Y")}} </small></p>
                         </div>
                     </div>
                 </div>

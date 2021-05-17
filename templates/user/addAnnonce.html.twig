@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'navbar.addDog'|trans }}{% endblock %}
+{% block pageTitle %}{{ 'navbar.addDog'|trans }}{% endblock %}
+{% block body %}
+
+    <div class="col-6">
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.title, {
+        row_attr: {
+            class: 'mb-3',
+        },
+        attr: {
+            class: 'form-control',
+        },
+        label_attr: {
+            class: 'form-label',
+        },
+    }) }}
+
+    {{ form_row(form.picture, {
+        row_attr: {
+            class: 'mb-3',
+        },
+        attr: {
+            class: 'form-control',
+        },
+        label_attr: {
+            class: 'form-label',
+        },
+    }) }}
+
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+
+    {{ form_end(form) }}
+
+
+    </div>
+
+{% endblock %}
