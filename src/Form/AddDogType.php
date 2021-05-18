@@ -14,6 +14,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class AddDogType extends AbstractType
 {
@@ -50,8 +52,8 @@ class AddDogType extends AbstractType
                 ['label' => 'Description']
 
             )
-            ->add('picture',
-                TextType::class,
+            ->add('pictureFile',
+                VichImageType::class,
                 ['label' => 'Photo']
             )
             ->add('annonce',

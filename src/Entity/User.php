@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -38,6 +40,16 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $email;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Dog::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $dogs;
+
+    public function __construct()
+    {
+        $this->dogs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -130,5 +142,35 @@ class User implements UserInterface
     public function __toString()
     {
         return $this->username;
+    }
+
+    /**
+     * @return Collection|Dog[]
+     */
+    public function getDogs(): Collection
+    {
+        return $this->dogs;
+    }
+
+    public function addDog(Dog $dog): self
+    {
+        if (!$this->dogs->contains($dog)) {
+            $this->dogs[] = $dog;
+            $dog->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDog(Dog $dog): self
+    {
+        if ($this->dogs->removeElement($dog)) {
+            // set the owning side to null (unless already changed)
+            if ($dog->getUser() === $this) {
+                $dog->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }

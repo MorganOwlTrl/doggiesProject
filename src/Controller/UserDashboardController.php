@@ -64,10 +64,9 @@ class UserDashboardController extends AbstractController
     public function addDog(Request $request, EntityManagerInterface $em, Dog $dog = null): Response
     {
 
-        /*dd($dog);*/
-/*        if ($dog == null) {
+        if ($dog == null) {
             $dog = new Dog();
-        }*/
+        }
 
         $form = $this->createForm(AddDogType::class, $dog, [
             'method' => 'POST',

@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\ImageRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Entity\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=ImageRepository::class)
@@ -25,7 +27,7 @@ class Image
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
-     * @Vich\UploadableField(mapping="dog_image", fileNameProperty="imageName", size="imageSize")
+     * @Vich\UploadableField(mapping="dog_image", fileNameProperty="imageName")
      *
      * @var File|null
      */

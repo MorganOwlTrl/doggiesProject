@@ -7,6 +7,7 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
             <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
             <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         {% endblock %}
@@ -14,10 +15,10 @@
 
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             {% block nav %}
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ path('default') }}">Milles et Un Toutous</a>
+                <a class="navbar-brand" href="{{ path('default') }}"><i class="fas fa-paw"></i> Milles et Un Toutous</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -50,12 +51,20 @@
             </div>
             {% endblock %}
         </nav>
-        <div class="container">
-            <div class="row my-5">
-                <h1>{% block pageTitle %}Bienvenue !{% endblock %}</h1>
+
+            <div class="p-5 mb-5 bg-dark">
+                <h1 class="text-white">{% block pageTitle %}Bienvenue !{% endblock %}</h1>
             </div>
+        <div class="container py-5">
             {% block body %}{% endblock %}
         </div>
+        <footer class="bg-dark text-white p-3">
+            {% block footer %}
+                <p>
+                    copyright 2021
+                </p>
+            {% endblock %}
+        </footer>
 
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}

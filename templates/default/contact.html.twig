@@ -10,7 +10,6 @@
     {# On ajoute des attributs sur la div, sur le widget et sur le label #}
 
     {{ form_row(form.email, {
-        label: {{ 'contact.mail'|trans }},
         row_attr: {
             class: 'mb-3',
         },
@@ -23,7 +22,6 @@
     }) }}
 
     {{ form_row(form.subject, {
-        label: '{{ 'contact.subject'|trans }}',
         row_attr: {
             class: 'mb-3',
         },
@@ -36,13 +34,12 @@
     }) }}
 
         {{ form_row(form.dog, {
-            label: '{{ 'contact.dog'|trans }}',
             row_attr: {
                 class: 'mb-3',
 
             },
             attr: {
-                class: 'form-control',
+                class: 'form-select',
 
             },
             label_attr: {
@@ -52,7 +49,6 @@
 
 
         {{ form_row(form.message, {
-            label: '{{ 'contact.message'|trans }}',
         row_attr: {
             class: 'mb-3',
         },

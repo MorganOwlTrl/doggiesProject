@@ -2,9 +2,7 @@
 {% block title %}{{ 'navbar.home'|trans }}{% endblock %}
 {% block pageTitle %}{{ 'navbar.home'|trans }}{% endblock %}
 {% block body %}
-    <img src="{{ asset('img/rottweiler.jpg') }}" class="rounded mx-auto d-block my-5"  alt="">
-    <h2>{{ 'home.welcome'|trans }}</h2>
-    <p>{{ 'home.lastdogs'|trans }}</p>
+    <h3 class="mb-5">{{ 'home.lastdogs'|trans }}</h3>
     <div class="row mx-auto">
 
     {% for annonce in annonces %}
@@ -12,7 +10,6 @@
             <h5 class="card-title">{{annonce.title}}</h5>
             <img src="{{annonce.picture}}" class="card-img-top picture-height-250 rounded-2" alt="...">
             <div class="card-body">
-
                 <a href="/fiche/{{annonce.id}}" class="btn btn-primary">Voir les détails de l'annonce</a>
             </div>
         </div>

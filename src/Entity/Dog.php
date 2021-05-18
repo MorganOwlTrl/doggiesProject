@@ -6,9 +6,13 @@ use App\Repository\DogRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=DogRepository::class)
+ * @Vich\Uploadable
  */
 class Dog
 {
@@ -45,6 +49,22 @@ class Dog
     private $picture;
 
     /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="dogs", fileNameProperty="picture")
+     *
+     * @var File|null
+     */
+    private $pictureFile;
+
+    /**
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     * @var \DateTimeInterface|null
+     */
+    private $updateAt;
+
+    /**
      * @ORM\ManyToOne(targetEntity=Annonce::class, inversedBy="dogs")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -60,11 +80,58 @@ class Dog
      */
     private $contact;
 
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="dogs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function __construct()
     {
         $this->breeds = new ArrayCollection();
         $this->contact = new ArrayCollection();
     }
+
+    /**
+     * @return File|null
+     */
+    public function getPictureFile(): ?File
+    {
+        return $this->pictureFile;
+    }
+
+    /**
+     * @param File|null $pictureFile
+     */
+    public function setPictureFile(?File $pictureFile): void
+    {
+        $this->pictureFile = $pictureFile;
+
+        if (null !== $pictureFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getUpdateAt(): ?\DateTimeInterface
+    {
+        return $this->updateAt;
+    }
+
+    /**
+     * @param \DateTimeInterface|null $updateAt
+     */
+    public function setUpdateAt(?\DateTimeInterface $updateAt): void
+    {
+        $this->updateAt = $updateAt;
+    }
+
+
 
     public function getId(): ?int
     {
@@ -201,6 +268,18 @@ class Dog
     {
         // TODO: Implement __toString() method.
         return $this->name;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
     }
 }
 
