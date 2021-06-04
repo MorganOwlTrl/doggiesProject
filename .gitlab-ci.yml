@@ -1,6 +1,9 @@
+
 stages:
   - prepare
-  - database
+  - build
+  - test
+  - deploy
 
 image: drakona/php:7.4-symfony
 
@@ -13,22 +16,63 @@ build:
       - vendor
     policy: push
 
-npm:
-  stage: prepare
-  script: npm install
-  cache:
-    paths:
-      - node_modules
-    policy: push
+job:composer:
+  stage: build
+  script:
+    - echo 'composer install'
 
-database:
-  stage: database
-  script: echo 'database'
-  dependencies:
-    - build
-    - npm
-  cache:
-    paths:
-      - vendor
-      - node_modules
-    policy: pull
+job:database:
+  stage: build
+  script:
+    - echo "création d'une BdD et exécution des migrations et fixtures"
+
+job:test unitaires:
+  stage: test
+  script:
+    -  echo 'tests unitaires'
+
+job:test fonctionnels:
+  stage: test
+  script:
+    - echo 'tests fonctionnels'
+
+job:déploiement prod:
+  stage: deploy
+  script:
+    - echo 'déploiement démo'
+  only:
+    - main
+  when: manual
+
+job:déploiement démo:
+  stage: deploy
+  script:
+    - echo 'déploiement démo'
+  only:
+    - main
+
+job:déploiement App Review:
+  stage: deploy
+  script:
+    - echo 'déploiement app review'
+  except:
+    - main
+    #npm:
+  #  stage: prepare
+#  script: npm install
+    # cache:
+  # paths:
+    #  - node_modules
+      #policy: push
+
+#database:
+#  stage: database
+#  script: echo 'database'
+      #  dependencies:
+      #    - build
+    #       - npm
+    #cache:
+      #paths:
+      #- vendor
+    #- node_modules
+    #policy: pull
