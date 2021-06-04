@@ -68,7 +68,7 @@
 
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
-            <script type="text/javascript" src="../public/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
         {% endblock %}
     </body>
 </html>

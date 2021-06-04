@@ -1,0 +1,5 @@
+image: drakona/php:7.4-symfony
+
+build :
+  script:
+    - composer install

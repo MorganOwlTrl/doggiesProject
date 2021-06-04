@@ -71,7 +71,8 @@ class AppCustomAuthentificatorAuthenticator extends AbstractFormLoginAuthenticat
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Username could not be found.');
+  throw new CustomUserMessageAuthenticationException('Cet utilisateur n\'existe pas.');
+
         }
 
         return $user;
@@ -97,12 +98,16 @@ class AppCustomAuthentificatorAuthenticator extends AbstractFormLoginAuthenticat
         }
 
         $user = $token->getUser();
-        if (in_array('ROLE_ADMIN', $user->getRoles())) {
+
+        if
+        (in_array('ROLE_ADMIN', $user->getRoles()))
+        {
             return new RedirectResponse($this->urlGenerator->generate('admin'));
-        } elseif (in_array('ROLE_USER', $user->getRoles())) {
+        }
+        elseif (in_array('ROLE_USER', $user->getRoles()))
+        {
             return new RedirectResponse($this->urlGenerator->generate('default'));
         }
-
         return new RedirectResponse($this->urlGenerator->generate('login'));
     }
 

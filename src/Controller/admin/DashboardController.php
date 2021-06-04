@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\admin;
+namespace App\Controller\Admin;
 
 use App\Entity\Annonce;
 use App\Entity\Breed;
@@ -34,6 +34,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Annonces', 'fas fa-sticky-note', Annonce::class );
         yield MenuItem::linkToCrud('Chiens', 'fas fa-dog', Dog::class);
         yield MenuItem::linkToCrud('Races de chiens', 'fas fa-list', Breed::class);
-
+        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user-friends', User::class);
     }
 }
