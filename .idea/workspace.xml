@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="46693585-9e28-4faa-9c0f-1674fff1ac69" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/admin/AnnonceCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/admin/AnnonceCrudController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/admin/BreedCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/admin/BreedCrudController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/admin/ContactCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/admin/ContactCrudController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/admin/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/admin/DogCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/admin/DogCrudController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/AppCustomAuthentificatorAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/AppCustomAuthentificatorAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="46693585-9e28-4faa-9c0f-1674fff1ac69" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,7 +167,7 @@
       <workItem from="1620719139171" duration="38693000" />
       <workItem from="1621341435508" duration="2470000" />
       <workItem from="1621423071950" duration="5650000" />
-      <workItem from="1622797526748" duration="956000" />
+      <workItem from="1622797526748" duration="1256000" />
     </task>
     <servers />
   </component>
